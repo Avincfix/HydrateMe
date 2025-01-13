@@ -6,6 +6,20 @@ import Home from './screens/Home';
 import Settings from './screens/Settings';
 import Log from './screens/Log';
 import Premium from './screens/Premium';
+import PushNotification from 'react-native-push-notification';
+
+PushNotification.configure({
+  onNotification: function(notification) {
+    console.log('NOTIFICATION:', notification);
+  },
+  permissions: {
+    alert: true,
+    badge: true,
+    sound: true,
+  },
+  popInitialNotification: true,
+  requestPermissions: true,
+});
 
 const Stack = createStackNavigator();
 
